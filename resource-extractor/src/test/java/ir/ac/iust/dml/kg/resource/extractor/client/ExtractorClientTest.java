@@ -13,7 +13,7 @@ import java.util.List;
 public class ExtractorClientTest {
     @Test
     public void match() throws Exception {
-        ExtractorClient client = new ExtractorClient("http://194.225.227.161:8094");
+        ExtractorClient client = new ExtractorClient("http://dmls.iust.ac.ir:8094");
         final List<MatchedResource> result = client.match("من علی لاریجانی نیستم.");
         assert !result.isEmpty();
     }

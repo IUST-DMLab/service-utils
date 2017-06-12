@@ -34,10 +34,14 @@ public class ExtractorClient {
     }
 
     public List<MatchedResource> match(String text) {
+        return match(text, false);
+    }
+
+    public List<MatchedResource> match(String text, boolean removeSubset) {
         try {
             final HttpGet request = new HttpGet(
-                    address + "/rest/v1/extractor/extract?text="
-                            + URLEncoder.encode(text, "UTF-8"));
+                address + "/rest/v1/extractor/extract?text="
+                    + URLEncoder.encode(text, "UTF-8") + "&removeSubset=" + removeSubset);
             request.addHeader("accept", "application/json");
             builder.build();
             try (CloseableHttpClient client = builder.build()) {
