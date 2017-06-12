@@ -10,10 +10,11 @@ import java.util.Set;
  * @bug [issue_url] description
  */
 public class Resource {
+  private String iri;
+  private ResourceType type;
     private final Set<String> classTree = new HashSet<>();
     private final Set<String> variantLabel = new HashSet<>();
     private final Set<String> disambiguatedFrom = new HashSet<>();
-    private String iri;
     private String instanceOf;
     private String label;
 
@@ -24,6 +25,14 @@ public class Resource {
     public void setIri(String iri) {
         this.iri = iri;
     }
+
+  public ResourceType getType() {
+    return type;
+  }
+
+  public void setType(ResourceType type) {
+    this.type = type;
+  }
 
     public String getInstanceOf() {
         return instanceOf;
