@@ -25,7 +25,7 @@
               <goal>generate</goal>
             </goals>
             <configuration>
-              <inputSpec>http://localhost:8091/rs/swagger.json</inputSpec>
+              <inputSpec>http://dmls.iust.ac.ir:8091/rs/swagger.json</inputSpec>
               <language>java</language>
               <configOptions>
                 <apiPackage>ir.ac.iust.dml.kg.services.client.swagger</apiPackage>
