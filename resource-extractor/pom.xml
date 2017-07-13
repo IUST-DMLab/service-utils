@@ -6,7 +6,7 @@
 
     <groupId>ir.ac.iust.dml.kg.services</groupId>
     <artifactId>resource-extractor-client</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <name>Resource Extractor Client</name>
     <packaging>jar</packaging>
 

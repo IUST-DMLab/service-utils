@@ -1,6 +1,6 @@
 package ir.ac.iust.dml.kg.resource.extractor.client;
 
-import java.util.Set;
+import java.util.List;
 
 /**
  * Descriotion of file
@@ -12,7 +12,7 @@ public class MatchedResource {
     private int start;
     private int end;
     private Resource resource;
-    private Set<Resource> ambiguities;
+  private List<Resource> ambiguities;
 
     public int getStart() {
         return start;
@@ -38,11 +38,11 @@ public class MatchedResource {
         this.resource = resource;
     }
 
-    public Set<Resource> getAmbiguities() {
+  public List<Resource> getAmbiguities() {
         return ambiguities;
     }
 
-    public void setAmbiguities(Set<Resource> ambiguities) {
+  public void setAmbiguities(List<Resource> ambiguities) {
         this.ambiguities = ambiguities;
     }
 }
