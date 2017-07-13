@@ -14,18 +14,12 @@ import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.util.List;
 
-/**
- * Descriotion of file
- *
- * @feature [issue_url] description
- * @bug [issue_url] description
- */
 public class ExtractorClient {
-    final String address;
-    final HttpClientBuilder builder = HttpClientBuilder.create();
-    final Type listType = new TypeToken<List<MatchedResource>>() {
+  private final String address;
+  private final HttpClientBuilder builder = HttpClientBuilder.create();
+  private final Type listType = new TypeToken<List<MatchedResource>>() {
     }.getType();
-    final Gson gson = new Gson();
+  private final Gson gson = new Gson();
 
 
     public ExtractorClient(String address) {
