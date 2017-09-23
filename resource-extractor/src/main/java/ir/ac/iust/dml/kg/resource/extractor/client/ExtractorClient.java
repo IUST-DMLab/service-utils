@@ -1,3 +1,9 @@
+/*
+ * Farsi Knowledge Graph Project
+ *  Iran University of Science and Technology (Year 2017)
+ *  Developed by Majid Asgari.
+ */
+
 package ir.ac.iust.dml.kg.resource.extractor.client;
 
 import com.google.gson.Gson;
@@ -18,37 +24,37 @@ public class ExtractorClient {
   private final String address;
   private final HttpClientBuilder builder = HttpClientBuilder.create();
   private final Type listType = new TypeToken<List<MatchedResource>>() {
-    }.getType();
+  }.getType();
   private final Gson gson = new Gson();
 
 
-    public ExtractorClient(String address) {
-        this.address = address;
-        builder.setDefaultRequestConfig(RequestConfig.DEFAULT);
-    }
+  public ExtractorClient(String address) {
+    this.address = address;
+    builder.setDefaultRequestConfig(RequestConfig.DEFAULT);
+  }
 
-    public List<MatchedResource> match(String text) {
-        return match(text, false);
-    }
+  public List<MatchedResource> match(String text) {
+    return match(text, false);
+  }
 
-    public List<MatchedResource> match(String text, boolean removeSubset) {
-        try {
-            final HttpGet request = new HttpGet(
-                address + "/rest/v1/extractor/extract?text="
-                    + URLEncoder.encode(text, "UTF-8") + "&removeSubset=" + removeSubset);
-            request.addHeader("accept", "application/json");
-            builder.build();
-            try (CloseableHttpClient client = builder.build()) {
-                final HttpResponse result = client.execute(request);
-                final String json = EntityUtils.toString(result.getEntity(), "UTF-8");
-                return gson.fromJson(json, listType);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+  public List<MatchedResource> match(String text, boolean removeSubset) {
+    try {
+      final HttpGet request = new HttpGet(
+          address + "/rest/v1/extractor/extract?text="
+              + URLEncoder.encode(text, "UTF-8") + "&removeSubset=" + removeSubset);
+      request.addHeader("accept", "application/json");
+      builder.build();
+      try (CloseableHttpClient client = builder.build()) {
+        final HttpResponse result = client.execute(request);
+        final String json = EntityUtils.toString(result.getEntity(), "UTF-8");
+        return gson.fromJson(json, listType);
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
 
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return null;
+    } catch (UnsupportedEncodingException e) {
+      e.printStackTrace();
     }
+    return null;
+  }
 }
